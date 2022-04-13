@@ -1,22 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
-import logo from '../logo.svg';
 
 const Home = () => {
   return (
-    <header className="app-header">
-      <img src={logo} className="app-logo" alt="logo" />
-      <pre style={{ textAlign: 'left' }}>
-        <code>window.blocklet = {JSON.stringify(window.blocklet, null, 2)}</code>
-      </pre>
-      <Link className="app-link" to="/about">
-        About
-      </Link>
-      <a className="app-link" href="https://docs.arcblock.io/abtnode/" target="_blank" rel="noopener noreferrer">
-        Learn Blocklet
-      </a>
-    </header>
+    <div style={{ textAlign: 'left' }}>
+      <h2 id="what-is-it">What is it?</h2>
+      <p>
+        An editor for creating and updating <a href="https://jsonresume.org/">JSON Resume</a> files
+      </p>
+      <h3 id="why">Why?</h3>
+      <ol>
+        <li>
+          Provide an easy interface to creating and updating JSON Resume files. Working with raw JSON files is not
+          difficult, but it&#39;s also not fun. This editor makes life easy.
+        </li>
+        <li>To act as sample application for creating VueJS training articles.</li>
+      </ol>
+    </div>
   );
 };
 
