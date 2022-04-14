@@ -13,7 +13,7 @@ const Home = () => {
           Provide an easy interface to creating and updating JSON Resume files. Working with raw JSON files is not
           difficult, but it&#39;s also not fun. This editor makes life easy.
         </li>
-        <li>To act as sample application for creating VueJS training articles.</li>
+        <li>To act as application for ArcBlock HackWeek 2022.04 </li>
       </ol>
     </div>
   );

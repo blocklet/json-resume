@@ -79,7 +79,6 @@ const InsideApp = () => {
             const Component = componentMap[item.component];
             return <Route exact key={item.key} path={item.key} element={<Component />} />;
           })}
-          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Layout>
       <CookieConsent locale={locale} />

@@ -50,96 +50,111 @@ const getMenuList = (t) => [
     locale: t('siderbar.home'),
     component: 'Home',
     icon: 'HomeIcon',
+    status: 'normal',
   },
   {
     key: '/basics',
     locale: t('siderbar.basics'),
     component: 'Basics',
     icon: 'AssignmentIndIcon',
+    status: 'normal',
   },
   {
     key: '/work',
     locale: t('siderbar.work'),
     component: 'Work',
     icon: 'WorkIcon',
-  },
-  {
-    key: '/volunteer',
-    locale: t('siderbar.volunteer'),
-    component: 'Volunteer',
-    icon: 'GroupIcon',
-  },
-  {
-    key: '/education',
-    locale: t('siderbar.education'),
-    component: 'Education',
-    icon: 'CastForEducationIcon',
-  },
-  {
-    key: '/awards',
-    locale: t('siderbar.awards'),
-    component: 'Awards',
-    icon: 'CardMembershipIcon',
-  },
-  {
-    key: '/publications',
-    locale: t('siderbar.publications'),
-    component: 'Publications',
-    icon: 'LibraryBooksIcon',
+    status: 'normal',
   },
   {
     key: '/skills',
     locale: t('siderbar.skills'),
     component: 'Skills',
     icon: 'BuildIcon',
+    status: 'normal',
+  },
+  {
+    key: '/volunteer',
+    locale: t('siderbar.volunteer'),
+    component: 'Volunteer',
+    icon: 'GroupIcon',
+    status: 'padding',
+  },
+  {
+    key: '/education',
+    locale: t('siderbar.education'),
+    component: 'Education',
+    icon: 'CastForEducationIcon',
+    status: 'padding',
+  },
+  {
+    key: '/awards',
+    locale: t('siderbar.awards'),
+    component: 'Awards',
+    icon: 'CardMembershipIcon',
+    status: 'padding',
+  },
+  {
+    key: '/publications',
+    locale: t('siderbar.publications'),
+    component: 'Publications',
+    icon: 'LibraryBooksIcon',
+    status: 'padding',
   },
   {
     key: '/languages',
     locale: t('siderbar.languages'),
     component: 'Languages',
     icon: 'TranslateIcon',
+    status: 'padding',
   },
   {
     key: '/interests',
     locale: t('siderbar.interests'),
     component: 'Interests',
     icon: 'FavoriteIcon',
+    status: 'padding',
   },
   {
     key: '/references',
     locale: t('siderbar.references'),
     component: 'References',
     icon: 'EventNoteIcon',
+    status: 'padding',
   },
   {
     key: '/projects',
     locale: t('siderbar.projects'),
     component: 'Projects',
     icon: 'DeviceHubIcon',
+    status: 'padding',
   },
   {
     key: '/preview',
     locale: t('siderbar.preview'),
     component: 'Preview',
     icon: 'VisibilityIcon',
+    status: 'normal',
   },
   {
     key: '/import',
     locale: t('siderbar.import'),
     component: 'Import',
     icon: 'PublishIcon',
+    status: 'normal',
   },
   {
     key: '/export',
     locale: t('siderbar.export'),
     component: 'Export',
     icon: 'GetAppIcon',
+    status: 'normal',
   },
 ];
 
 const Sidebar = ({ active }) => {
   const { t } = useContext(LocaleContext);
-  const menuList = getMenuList(t);
+  const menuList = getMenuList(t).filter((i) => i.status === 'normal');
   return (
     <List component="nav">
       {menuList.map((item) => {

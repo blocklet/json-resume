@@ -13,9 +13,7 @@ import Header from './header';
 import Sidebar, { getMenuList } from './siderbar';
 
 export default function Layout({ sidebar, loading, error, children, isUser }) {
-  const blockletInfo = useBlockletContext();
-  // eslint-disable-next-line no-console
-  console.log('blockletInfo===', blockletInfo);
+  const { blocklet: blockletInfo } = useBlockletContext();
   const cssMap = {
     layout: css`
       min-height: 100vh;
@@ -100,7 +98,7 @@ export default function Layout({ sidebar, loading, error, children, isUser }) {
             </Hidden>
           </>
         )}
-        <Container css={cssMap.main} maxWidth={isUser ? 'lg' : 'xl'}>
+        <Container css={cssMap.main} maxWidth={isUser ? 'lg' : 'md'}>
           {loading && (
             <Box flex={1} display="flex" alignItems="center" justifyContent="center">
               <CircularProgress />

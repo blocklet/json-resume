@@ -16,7 +16,7 @@ import { useBlockletContext } from '../../contexts/blocklet-info';
 const Header = ({ onToggleDrawer, hiddenMenu, ...rest }) => {
   const { session } = useSessionContext();
   const { locale } = useLocaleContext();
-  const blockletInfo = useBlockletContext();
+  const { blocklet: blockletInfo } = useBlockletContext();
 
   const cssMap = {
     appBar: (theme) => css`

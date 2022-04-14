@@ -22,7 +22,6 @@ router.use('/api', require('./routes'));
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 const isProduction = process.env.NODE_ENV === 'production' || process.env.ABT_NODE_SERVICE_ENV === 'production';
-
 if (isDevelopment) {
   process.env.BLOCKLET_PORT = 3030;
 }

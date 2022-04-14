@@ -1,21 +1,21 @@
-import React from 'react';
+/* eslint-disable no-console */
+import React, { useCallback } from 'react';
 import { MuiForm4 } from '@rjsf/material-ui';
 
 import { jsonSchema, uiSchema } from '../../schema/basics';
+import useLocalFormState from '../../hooks/form-state';
 
 const Basics = () => {
-  // eslint-disable-next-line no-console
-  const log = (type) => console.log.bind(console, type);
+  const { localFormState, setLocalFormState } = useLocalFormState({}, 'basics');
+  const onChange = useCallback((data) => {
+    setLocalFormState({ basics: data.formData });
+  });
   return (
     <div>
-      <h2>Basics</h2>
-      <MuiForm4
-        schema={jsonSchema}
-        uiSchema={uiSchema}
-        onChange={log('changed')}
-        onSubmit={log('submitted')}
-        onError={log('errors')}
-      />
+      <h1>Basics</h1>
+      <MuiForm4 schema={jsonSchema} formData={localFormState.basics} uiSchema={uiSchema} onChange={onChange}>
+        <></>
+      </MuiForm4>
     </div>
   );
 };
