@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { useCallback } from 'react';
 import { MuiForm4 } from '@rjsf/material-ui';
 

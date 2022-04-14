@@ -1,12 +1,9 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-console */
 import React, { useEffect, useState } from 'react';
 import Button from '@arcblock/ux/lib/Button';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import Center from '@arcblock/ux/lib/Center';
 
 import joinUrl from 'url-join';
 import axios from '../libs/api';
@@ -19,14 +16,12 @@ const Preview = () => {
   const [theme, setTheme] = useState('flat');
   const [loading, setLoading] = useState(false);
   const [publishing, setPublishing] = useState(false);
-  const [published, setPublished] = useState(false);
+  const [published, setPublished] = useState(null);
   const { localFormState } = useLocalFormState();
   const { isProtected: hasLogin } = useProtectLogin();
   const { myResume } = useBlockletContext();
 
-  console.log('myResume===', myResume);
-
-  const { meta = { theme }, ...otherSchema } = localFormState;
+  const { meta, ...otherSchema } = localFormState;
 
   const getResumeHTML = async (_theme) => {
     setLoading(true);
@@ -42,10 +37,10 @@ const Preview = () => {
     setPublishing(true);
     const result = await axios.post('/api/resume/publish', { schema: otherSchema, theme });
     setPublishing(false);
-    setPublished(true);
+    setPublished(result.data);
   };
   const getMyResume = async () => {
-    window.open(joinUrl(window.location.origin, `/api/resume/${myResume.data._id}`));
+    window.open(joinUrl(window.location.origin, `/api/resume/${myResume?.data?._id || published?._id}`));
   };
   useEffect(() => {
     getResumeHTML(theme);

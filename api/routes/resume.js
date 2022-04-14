@@ -98,9 +98,12 @@ router.post('/publish', authenticate, async (req, res) => {
   const resume = await ResumeDB.findOne({ did });
   let result;
   if (!resume) {
+    console.log('新增');
     result = await ResumeDB.insert({ did, schema: data });
   } else {
-    result = await ResumeDB.update({ did }, { $set: { schema: data } });
+    console.log('更新');
+    await ResumeDB.update({ did }, { $set: { schema: data } });
+    result = { ...resume, ...data };
   }
 
   res.json(result);

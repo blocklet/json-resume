@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-console */
 const STATE_KEY = 'local-form-state';
 /**
  * 将 form 中的数据时时同步到 localStorage

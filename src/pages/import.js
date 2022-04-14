@@ -1,5 +1,4 @@
 /* eslint-disable no-alert */
-/* eslint-disable no-console */
 import React, { useRef } from 'react';
 import Button from '@arcblock/ux/lib/Button';
 import { useNavigate } from 'react-router-dom';

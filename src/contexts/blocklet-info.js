@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { createContext, useContext, useMemo } from 'react';
 import propTypes from 'prop-types';
 import { useRequest } from 'ahooks';
@@ -7,7 +6,6 @@ import Center from '@arcblock/ux/lib/Center';
 
 import { useSessionContext } from './session';
 import axios from '../libs/api';
-import useLocalFormState from '../hooks/form-state';
 
 const BlockletContext = createContext({});
 const { Provider, Consumer } = BlockletContext;
@@ -29,8 +27,6 @@ function BlockletProvider({ children }) {
     CONFIG_API: '',
     groupPrefix: '',
   };
-  // eslint-disable-next-line no-unused-vars
-  const { setLocalFormState } = useLocalFormState();
   const { session } = useSessionContext();
   const myResume = useRequest(getInfo, { refreshDeps: [session.user] });
   const blocklet = useMemo(() => Object.assign({}, tmp, window?.blocklet), [window.blocklet]);
