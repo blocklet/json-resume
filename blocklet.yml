@@ -56,5 +56,6 @@ environments:
 capabilities:
   clusterMode: false
   component: true
-screenshots: []
+screenshots:
+  - 0-home.png
 children: []
