@@ -58,4 +58,6 @@ capabilities:
   component: true
 screenshots:
   - 0-home.png
+  - 1-basics.png
+  - 2-preview.png
 children: []
