@@ -1,3 +1,7 @@
+## 0.1.3 (四月 17, 2022)\n
+
+- chore:  add more json cv field
+
 ## 0.1.2 (四月 15, 2022)\n
 
 - fix: view published resume
