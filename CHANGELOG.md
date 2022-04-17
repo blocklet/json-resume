@@ -1,3 +1,7 @@
+## 0.1.4 (四月 17, 2022)\n
+
+- chore: update screenshots
+
 ## 0.1.3 (四月 17, 2022)\n
 
 - chore:  add more json cv field
