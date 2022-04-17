@@ -7,7 +7,7 @@ import useLocalFormState from '../hooks/form-state';
 
 const Import = () => {
   const textareaRef = useRef(null);
-  const { setLocalFormState, removeLocalFormState } = useLocalFormState();
+  const { setLocalFormState } = useLocalFormState();
   const navigate = useNavigate();
 
   const handleImport = () => {
@@ -21,13 +21,6 @@ const Import = () => {
       console.error(error.message);
     }
   };
-  const handleClear = () => {
-    const c = window.confirm('Are you sure you want to clear your saved resume?');
-    if (c === true) {
-      removeLocalFormState();
-      alert('clear success');
-    }
-  };
   return (
     <div>
       <h2>Import</h2>
@@ -36,9 +29,6 @@ const Import = () => {
       <div>
         <Button color="primary" variant="contained" onClick={handleImport}>
           Import
-        </Button>
-        <Button color="danger" variant="contained" onClick={handleClear} style={{ marginLeft: '8px' }}>
-          Clear
         </Button>
       </div>
     </div>

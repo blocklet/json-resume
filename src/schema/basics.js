@@ -18,7 +18,7 @@ const jsonSchema = {
       title: 'Professional Title',
       default: '',
     },
-    image: {
+    picture: {
       type: 'string',
       title: 'Profile Picture',
       default: '',
@@ -118,7 +118,7 @@ const uiSchema = {
   label: {
     'ui:help': 'e.g. software developer, IT manager, graphic designer.',
   },
-  image: {
+  picture: {
     'ui:help': 'URL (as per RFC 3986) to a image in JPEG or PNG format of your profile photo.',
   },
   email: {

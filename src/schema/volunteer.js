@@ -1,21 +1,21 @@
 const jsonSchema = {
-  key: 'work',
+  key: 'volunteer',
   type: 'array',
   minItems: 1,
   items: {
     type: 'object',
-    required: ['name', 'position'],
+    required: ['organization', 'position'],
     properties: {
-      name: {
+      organization: {
         type: 'string',
-        title: 'Company',
-        description: 'Name of the company or organisation where you worked.',
+        title: 'Organisation',
+        description: 'Name of the organisation you volunteered for.',
         default: '',
       },
       position: {
         type: 'string',
         title: 'Position',
-        description: 'Your role or position title.',
+        description: 'Role or position title.',
         default: '',
       },
       url: {
@@ -27,28 +27,29 @@ const jsonSchema = {
       startDate: {
         type: 'string',
         title: 'Start Date',
-        description: 'Date you started in the position.',
+        description: 'Date you started work (full date or month and year)',
         default: '',
         format: 'date',
       },
       endDate: {
         type: 'string',
         title: 'End Date',
-        description: 'Date you finished in the position (leave blank if you are still currently in it).',
+        description: 'End date (if not current).',
         default: '',
         format: 'date',
       },
       summary: {
         type: 'string',
         title: 'Summary',
+        description: 'Details of your work, responsibilities and achievements. And a little about the company.',
         default: '',
       },
       highlights: {
         type: 'array',
         title: 'Highlights',
-        default: [''],
         description:
           'Briefly describe successes and outcomes (e.g. Increased profits by 20% from 2011-2012 through viral advertising).',
+        default: [''],
         items: {
           type: 'string',
         },
@@ -69,4 +70,4 @@ const uiSchema = {
   },
 };
 
-export { uiSchema, jsonSchema };
+export { jsonSchema, uiSchema };

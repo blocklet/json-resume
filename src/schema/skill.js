@@ -2,6 +2,13 @@
 const jsonSchema = {
   key: 'skill',
   type: 'array',
+  default: [
+    {
+      name: '',
+      level: '',
+      keywords: ['HTML', 'CSS', 'JavaScript'],
+    },
+  ],
   items: {
     type: 'object',
     required: ['name', 'level'],

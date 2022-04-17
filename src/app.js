@@ -18,6 +18,7 @@ import { SessionProvider } from './contexts/session';
 import theme from './libs/theme';
 import Layout, { getMenuList, Sidebar } from './components/layout';
 import { BlockletProvider } from './contexts/blocklet-info';
+import { UserProvider } from './contexts/user';
 
 import Import from './pages/import';
 import Preview from './pages/preview';
@@ -67,7 +68,7 @@ const InsideApp = () => {
   dayjs.locale(locale === 'zh' ? 'zh-cn' : locale);
   dayjs.extend(LocalizedFormat);
   dayjs.extend(relativeTime);
-  const menuList = getMenuList(t);
+  const menuList = getMenuList(t).filter((i) => i.status === 'normal');
   const location = useLocation();
   return (
     <div className="app">
@@ -93,9 +94,11 @@ function App() {
         <EmotionThemeProvider theme={theme}>
           <LocaleProvider translations={translations}>
             <SessionProvider serviceHost={get(window, 'blocklet.prefix', '/')}>
-              <BlockletProvider>
-                <InsideApp />
-              </BlockletProvider>
+              <UserProvider>
+                <BlockletProvider>
+                  <InsideApp />
+                </BlockletProvider>
+              </UserProvider>
             </SessionProvider>
           </LocaleProvider>
         </EmotionThemeProvider>

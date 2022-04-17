@@ -1,20 +1,20 @@
 const jsonSchema = {
-  key: 'work',
+  key: 'projects',
   type: 'array',
   minItems: 1,
   items: {
     type: 'object',
-    required: ['name', 'position'],
+    required: ['name', 'description'],
     properties: {
       name: {
         type: 'string',
-        title: 'Company',
+        title: 'Name',
         description: 'Name of the company or organisation where you worked.',
         default: '',
       },
-      position: {
+      description: {
         type: 'string',
-        title: 'Position',
+        title: 'Description',
         description: 'Your role or position title.',
         default: '',
       },
@@ -28,27 +28,40 @@ const jsonSchema = {
         type: 'string',
         title: 'Start Date',
         description: 'Date you started in the position.',
+        format: 'Date',
         default: '',
-        format: 'date',
       },
       endDate: {
         type: 'string',
         title: 'End Date',
         description: 'Date you finished in the position (leave blank if you are still currently in it).',
-        default: '',
-        format: 'date',
-      },
-      summary: {
-        type: 'string',
-        title: 'Summary',
+        format: 'Date',
         default: '',
       },
       highlights: {
         type: 'array',
         title: 'Highlights',
-        default: [''],
         description:
           'Briefly describe successes and outcomes (e.g. Increased profits by 20% from 2011-2012 through viral advertising).',
+        default: [''],
+        items: {
+          type: 'string',
+        },
+        minItems: 1,
+      },
+      keywords: {
+        type: 'array',
+        title: 'Keywords',
+        default: [''],
+        items: {
+          type: 'string',
+        },
+        minItems: 1,
+      },
+      roles: {
+        type: 'array',
+        title: 'Roles',
+        default: [''],
         items: {
           type: 'string',
         },
@@ -57,16 +70,6 @@ const jsonSchema = {
     },
   },
 };
-const uiSchema = {
-  items: {
-    summary: {
-      'ui:widget': 'textarea',
-      'ui:options': {
-        rows: 8,
-      },
-      'ui:help': 'Details of your work, responsibilities and achievements. And a little about the company.',
-    },
-  },
-};
+const uiSchema = {};
 
-export { uiSchema, jsonSchema };
+export { jsonSchema, uiSchema };
