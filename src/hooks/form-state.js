@@ -111,7 +111,11 @@ const useLocalFormState = (defaultValue = {}, path) => {
     setLocalFormState({ [path]: defaultValue });
   }
   function setLocalFormState(value) {
-    window.localStorage.setItem(STATE_KEY, JSON.stringify({ ...localFormState, ...value }));
+    try {
+      window.localStorage.setItem(STATE_KEY, JSON.stringify({ ...localFormState, ...value }));
+    } catch (error) {
+      throw new Error(error.message);
+    }
   }
   function removeLocalFormState() {
     window.localStorage.removeItem(STATE_KEY);

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-alert */
 import React, { useRef } from 'react';
 import Button from '@arcblock/ux/lib/Button';
@@ -14,11 +15,11 @@ const Import = () => {
     try {
       if (textareaRef.current.value) {
         setLocalFormState(JSON.parse(textareaRef.current.value));
-        navigate('/basics');
+        navigate('/section/basics');
       }
-    } catch (error) {
-      alert('import failed');
-      console.error(error.message);
+    } catch (e) {
+      console.error(e);
+      alert(`import failed: ${e.message}`);
     }
   };
   return (
